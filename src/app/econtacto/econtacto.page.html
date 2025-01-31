@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editar Contacto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)] = "txt_nombre" type="text"></ion-input>
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input [(ngModel)] = "txt_apellido" type="text"></ion-input>
+    <ion-label position="floating">Telefono</ion-label>
+    <ion-input [(ngModel)] = "txt_telefono" type="text"></ion-input>
+    <ion-label color="danger"></ion-label>
+    <ion-label position="floating" type="text">Correo</ion-label>
+    <ion-input [(ngModel)] = "txt_correo" type="E-mail"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button id="mostrar-alerta" color="success">
+      Eliminar
+    </ion-button>
+    <ion-button (click)="cancelar()" color="success">
+      Cancelar
+    </ion-button>
+  </ion-item>
+  <ion-alert
+    trigger="mostrar-alerta"
+    header="Esta seguro de eliminar el registro?"
+    [buttons]="botones">
+  </ion-alert>
+</ion-content>

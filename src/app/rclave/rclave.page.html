@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Recuperar Clave</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating">Ingresa tu correo para recuperacion</ion-label>
+    <ion-input type="text" [(ngModel)] = "txt_correo"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="existe">
+    <ion-label>Clave</ion-label>
+    <ion-input type="password" [(ngModel)] = "txt_clave" (focusout) = "vclave();"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="existe">
+    <ion-label>Confirmar Clave</ion-label>
+    <ion-input type="password" [(ngModel)] = "txt_cclave" (focusout) = "vclave();"></ion-input>
+    <ion-label color="danger">{{mensaje}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-button *ngIf="!existe" class="success" (click)="consultar()" expand="block" fill="clear" shape="round">Consultar</ion-button>
+    <ion-button *ngIf="existe" class="success" (click)="guardar()" expand="block" fill="clear" shape="round">Guardar</ion-button>
+  </ion-item>
+</ion-content>

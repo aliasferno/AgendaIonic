@@ -1,20 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Agenda
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div id="contenedor">
+    <ion-item>
+      <img src="assets/imgs/agendas.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
+    </ion-item>
+    <ion-card color="light">
+      <ion-card-header>
+        <ion-card-title>Inicio de Sesion</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input type="text" [(ngModel)]="txt_usuario"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Clave</ion-label>
+          <ion-input type="password" [(ngModel)]="txt_clave"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-button id="open-loading" (click)="login()" expand="block" color="primary">
+            Iniciar Sesion
+          </ion-button>
+        </ion-item>
+        <ion-item>
+          <table width="100%" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="50%">
+                <span class="opciones" (click) = "crear()">Crear Cuenta</span>
+              </td>
+              <td width="50%">
+                <span class="opciones" (click) = "recuperar()">Recuperar Clave</span>
+              </td>
+            </tr>
+          </table>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <ion-loading trigger="open-loading" message="Cargando..." duration="1000" show-backdrop="true" spinner="dots"></ion-loading>
   </div>
 </ion-content>

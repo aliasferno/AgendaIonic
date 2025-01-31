@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Actualizar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input type="text" [(ngModel)] = "txt_nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Apellido</ion-label>
+    <ion-input type="text" [(ngModel)] = "txt_apellido"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Correo</ion-label>
+    <ion-input type="text" [(ngModel)] = "txt_correo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Clave</ion-label>
+    <ion-input type="password" [(ngModel)] = "txt_clave" (focusout) = "vclave();"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Confirmar Clave</ion-label>
+    <ion-input type="password" [(ngModel)] = "txt_cclave" (focusout) = "vclave();"></ion-input>
+    <ion-label color="danger">{{mensaje}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-button class="success" (click)="actualizar()" expand="block" fill="clear" shape="round">Actualizar</ion-button>
+    <ion-button class="secondary" (click)="cancelar()" expand="block" fill="clear" shape="round">Cancelar</ion-button>
+  </ion-item>
+</ion-content>
