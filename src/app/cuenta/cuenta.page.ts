@@ -27,7 +27,7 @@ export class CuentaPage implements OnInit {
 
   vclave(){
     if(this.txt_clave != this.txt_cclave){
-      this.mensaje = "Las contraseñas no coinciden";
+      this.mensaje = "Las contraseÃ±as no coinciden";
     }else{
       this.mensaje = "";
     }

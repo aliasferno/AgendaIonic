@@ -1,33 +1,46 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Actualizar Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label>Nombre</ion-label>
-    <ion-input type="text" [(ngModel)] = "txt_nombre"></ion-input>
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Nombre -->
+  <ion-item lines="full">
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="txt_nombre" placeholder="Ingresa tu nombre"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label>Apellido</ion-label>
-    <ion-input type="text" [(ngModel)] = "txt_apellido"></ion-input>
+
+  <!-- Apellido -->
+  <ion-item lines="full">
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input type="text" [(ngModel)]="txt_apellido" placeholder="Ingresa tu apellido"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label>Correo</ion-label>
-    <ion-input type="text" [(ngModel)] = "txt_correo"></ion-input>
+
+  <!-- Correo -->
+  <ion-item lines="full">
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input type="email" [(ngModel)]="txt_correo" placeholder="Ingresa tu correo"></ion-input>
   </ion-item>
-  <ion-item>
+
+  <!-- Clave -->
+  <ion-item lines="full" class="password-item">
     <ion-label>Clave</ion-label>
-    <ion-input type="password" [(ngModel)] = "txt_clave" (focusout) = "vclave();"></ion-input>
+    <ion-input type="password" [(ngModel)]="txt_clave" (focusout)="vclave()"></ion-input>
   </ion-item>
-  <ion-item>
+
+  <!-- Confirmar clave -->
+  <ion-item lines="full" class="password-item">
     <ion-label>Confirmar Clave</ion-label>
-    <ion-input type="password" [(ngModel)] = "txt_cclave" (focusout) = "vclave();"></ion-input>
+    <ion-input type="password" [(ngModel)]="txt_cclave" (focusout)="vclave()"></ion-input>
     <ion-label color="danger">{{mensaje}}</ion-label>
   </ion-item>
-  <ion-item>
-    <ion-button class="success" (click)="actualizar()" expand="block" fill="clear" shape="round">Actualizar</ion-button>
-    <ion-button class="secondary" (click)="cancelar()" expand="block" fill="clear" shape="round">Cancelar</ion-button>
-  </ion-item>
+
+  <!-- Botones -->
+  <div class="ion-padding-top">
+    <ion-button expand="block" color="success" shape="round" (click)="actualizar()">Actualizar</ion-button>
+    <ion-button expand="block" color="secondary" shape="round" (click)="cancelar()">Cancelar</ion-button>
+  </div>
+  
 </ion-content>

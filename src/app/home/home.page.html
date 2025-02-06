@@ -1,48 +1,56 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="header-gradient">
   <ion-toolbar>
-    <ion-title>
-      Agenda
+    <ion-title class="title-logo">
+      <ion-icon name="calendar" class="logo-icon"></ion-icon>
+      Mi Agenda
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div id="contenedor">
-    <ion-item>
-      <img src="assets/imgs/agendas.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
-    </ion-item>
-    <ion-card color="light">
-      <ion-card-header>
-        <ion-card-title>Inicio de Sesion</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-item>
-          <ion-label position="floating">Usuario</ion-label>
-          <ion-input type="text" [(ngModel)]="txt_usuario"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Clave</ion-label>
-          <ion-input type="password" [(ngModel)]="txt_clave"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-button id="open-loading" (click)="login()" expand="block" color="primary">
-            Iniciar Sesion
-          </ion-button>
-        </ion-item>
-        <ion-item>
-          <table width="100%" cellspacing="0" cellpadding="0">
-            <tr>
-              <td width="50%">
-                <span class="opciones" (click) = "crear()">Crear Cuenta</span>
-              </td>
-              <td width="50%">
-                <span class="opciones" (click) = "recuperar()">Recuperar Clave</span>
-              </td>
-            </tr>
-          </table>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-    <ion-loading trigger="open-loading" message="Cargando..." duration="1000" show-backdrop="true" spinner="dots"></ion-loading>
+<ion-content [fullscreen]="true" class="content-background">
+  <div class="auth-container">
+    <div class="illustration-container">
+      <img src="assets/imgs/agendas.png" class="auth-illustration">
+    </div>
+
+    <div class="form-container">
+      <ion-item lines="none" class="input-item">
+        <ion-label position="floating" class="input-label">Usuario</ion-label>
+        <ion-input 
+          type="text" 
+          [(ngModel)]="txt_usuario"
+          class="custom-input"
+          enterkeyhint="next"
+          autocomplete="username"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="input-item">
+        <ion-label position="floating" class="input-label">Contraseña</ion-label>
+        <ion-input 
+          type="password" 
+          [(ngModel)]="txt_clave"
+          class="custom-input"
+          enterkeyhint="done"
+          autocomplete="current-password"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button 
+        expand="block" 
+        (click)="login()" 
+        class="auth-button"
+        shape="round"
+      >
+        <ion-spinner name="dots" *ngIf="cargando"></ion-spinner>
+        <span *ngIf="!cargando">Iniciar Sesion</span>
+      </ion-button>
+
+      <div class="auth-links">
+        <a class="link-text" (click)="crear()">Crear cuenta</a>
+        <div class="separator"></div>
+        <a class="link-text" (click)="recuperar()">¿Olvidaste tu contraseña?</a>
+      </div>
+    </div>
   </div>
 </ion-content>

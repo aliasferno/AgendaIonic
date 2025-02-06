@@ -44,7 +44,7 @@ export class RclavePage implements OnInit {
         this.cod_persona = this.persona.codigo;
         this.existe = true;
       }else{
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
       }
     })
   }

@@ -1,0 +1,73 @@
+/* Estilo general para mejorar la apariencia */
+ion-item {
+    --background: #fff;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-bottom: 20px;
+  }
+  
+  /* Inputs con bordes suaves y sombra */
+  ion-input {
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --padding-start: 16px;
+  }
+  
+  /* Estilo para las etiquetas flotantes */
+  ion-label.floating {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Botones con bordes redondeados y sombra */
+  ion-button {
+    --border-radius: 30px;
+    --transition: all 0.3s ease-in-out;
+    margin-bottom: 15px; /* Espaciado entre botones */
+  }
+  
+  ion-button:hover {
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  ion-button:active {
+    --box-shadow: none;
+  }
+  
+  /* Color del encabezado y toolbar */
+  ion-header {
+    --background: #6200ea; /* Color principal */
+  }
+  
+  ion-toolbar {
+    --background: #6200ea; /* Color toolbar */
+  }
+  
+  ion-title {
+    color: white; /* Título en blanco */
+  }
+  
+  /* Mensaje de error */
+  ion-label[color="danger"] {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #f44336;
+    padding-top: 4px;
+  }
+  
+  /* Espaciado adecuado entre los elementos */
+  .ion-padding-top {
+    margin-top: 20px;
+  }
+  
+  ion-item[lines="full"] {
+    --border-width: 0;
+  }
+  
+  /* Etiquetas flotantes con padding */
+  ion-label {
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 8px;
+  }
+  

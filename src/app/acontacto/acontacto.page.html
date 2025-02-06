@@ -1,27 +1,42 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Actualizar Contacto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input [(ngModel)] = "txt_nombre" type="text"></ion-input>
-    <ion-label position="floating">Apellido</ion-label>
-    <ion-input [(ngModel)] = "txt_apellido" type="text"></ion-input>
-    <ion-label position="floating">Telefono</ion-label>
-    <ion-input [(ngModel)] = "txt_telefono" type="text" (focusout)="verificarnumero();"></ion-input>
-    <ion-label color="danger">{{lbl_mensaje}}</ion-label>
-    <ion-label position="floating" type="text">Correo</ion-label>
-    <ion-input [(ngModel)] = "txt_correo" type="E-mail"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-button (click)="guardar()" color="success">
-      Guardar
-    </ion-button>
-    <ion-button (click)="cancelar()" color="success">
-      Cancelar
-    </ion-button>
-  </ion-item>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card class="contact-card">
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="txt_nombre" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input [(ngModel)]="txt_apellido" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input [(ngModel)]="txt_telefono" type="text" (focusout)="verificarnumero();"></ion-input>
+      </ion-item>
+
+      <p class="error-message">{{ lbl_mensaje }}</p>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input [(ngModel)]="txt_correo" type="email"></ion-input>
+      </ion-item>
+
+      <div class="button-container">
+        <ion-button expand="block" color="success" (click)="guardar()">
+          Guardar
+        </ion-button>
+        <ion-button expand="block" color="medium" (click)="cancelar()">
+          Cancelar
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,37 +1,52 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label>Cedula</ion-label>
-    <ion-input type="text" [(ngModel)] = "txt_cedula" (focusout) = "vcedula()"></ion-input>
+<ion-content [fullscreen]="true" class="ion-padding">
+  
+  <!-- Cedula Input -->
+  <ion-item class="input-item">
+    <ion-label position="floating">Cédula</ion-label>
+    <ion-input type="text" [(ngModel)]="txt_cedula" (focusout)="vcedula()"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label>Nombre</ion-label>
-    <ion-input type="text" [(ngModel)] = "txt_nombre"></ion-input>
+
+  <!-- Nombre Input -->
+  <ion-item class="input-item">
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="txt_nombre"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label>Apellido</ion-label>
-    <ion-input type="text" [(ngModel)] = "txt_apellido"></ion-input>
+
+  <!-- Apellido Input -->
+  <ion-item class="input-item">
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input type="text" [(ngModel)]="txt_apellido"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label>Correo</ion-label>
-    <ion-input type="text" [(ngModel)] = "txt_correo"></ion-input>
+
+  <!-- Correo Input -->
+  <ion-item class="input-item">
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input type="email" [(ngModel)]="txt_correo"></ion-input>
   </ion-item>
-  <ion-item>
+
+  <!-- Clave Input -->
+  <ion-item class="input-item">
     <ion-label>Clave</ion-label>
-    <ion-input type="password" [(ngModel)] = "txt_clave" (focusout) = "vclave();"></ion-input>
+    <ion-input type="password" [(ngModel)]="txt_clave" (focusout)="vclave();"></ion-input>
   </ion-item>
-  <ion-item>
+
+  <!-- Confirmar Clave Input -->
+  <ion-item class="input-item">
     <ion-label>Confirmar Clave</ion-label>
-    <ion-input type="password" [(ngModel)] = "txt_cclave" (focusout) = "vclave();"></ion-input>
-    <ion-label color="danger">{{mensaje}}</ion-label>
+    <ion-input type="password" [(ngModel)]="txt_cclave" (focusout)="vclave();"></ion-input>
+    <ion-label color="danger" class="error-message">{{mensaje}}</ion-label>
   </ion-item>
-  <ion-item>
-    <ion-button class="success" (click)="registrar()" expand="block" fill="clear" shape="round">Registrar</ion-button>
-    <ion-button class="secondary" (click)="cancelar()" expand="block" fill="clear" shape="round">Cancelar</ion-button>
-  </ion-item>
+
+  <!-- Buttons -->
+  <div class="button-container">
+    <ion-button color="success" expand="block" shape="round" (click)="registrar()">Registrar</ion-button>
+    <ion-button color="secondary" expand="block" fill="outline" shape="round" (click)="cancelar()">Cancelar</ion-button>
+  </div>
+  
 </ion-content>

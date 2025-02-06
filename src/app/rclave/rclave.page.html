@@ -1,25 +1,35 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Recuperar Clave</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label position="floating">Ingresa tu correo para recuperacion</ion-label>
-    <ion-input type="text" [(ngModel)] = "txt_correo"></ion-input>
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Correo -->
+  <ion-item lines="full">
+    <ion-label position="floating">Ingresa tu correo para recuperación</ion-label>
+    <ion-input type="email" [(ngModel)]="txt_correo"></ion-input>
   </ion-item>
-  <ion-item *ngIf="existe">
+
+  <!-- Clave (visible solo si existe) -->
+  <ion-item *ngIf="existe" lines="full">
     <ion-label>Clave</ion-label>
-    <ion-input type="password" [(ngModel)] = "txt_clave" (focusout) = "vclave();"></ion-input>
+    <ion-input type="password" [(ngModel)]="txt_clave" (focusout)="vclave()" placeholder="Ingresa una nueva clave"></ion-input>
   </ion-item>
-  <ion-item *ngIf="existe">
+
+  <!-- Confirmar Clave (visible solo si existe) -->
+  <ion-item *ngIf="existe" lines="full">
     <ion-label>Confirmar Clave</ion-label>
-    <ion-input type="password" [(ngModel)] = "txt_cclave" (focusout) = "vclave();"></ion-input>
+    <ion-input type="password" [(ngModel)]="txt_cclave" (focusout)="vclave()" placeholder="Confirma tu nueva clave"></ion-input>
     <ion-label color="danger">{{mensaje}}</ion-label>
   </ion-item>
-  <ion-item>
-    <ion-button *ngIf="!existe" class="success" (click)="consultar()" expand="block" fill="clear" shape="round">Consultar</ion-button>
-    <ion-button *ngIf="existe" class="success" (click)="guardar()" expand="block" fill="clear" shape="round">Guardar</ion-button>
-  </ion-item>
+
+  <!-- Botones -->
+  <div class="ion-padding-top">
+    <ion-button *ngIf="!existe" expand="block" color="success" shape="round" (click)="consultar()">Consultar</ion-button>
+    <ion-button *ngIf="existe" expand="block" color="success" shape="round" (click)="guardar()">Guardar</ion-button>
+  </div>
+
 </ion-content>
+

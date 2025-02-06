@@ -1,59 +1,73 @@
 <ion-app>
+
+  <!-- MENÚ LATERAL -->
   <ion-menu contentId="main-content">
-    <ion-header>
+    <ion-header class="menu-header">
       <ion-toolbar color="primary" class="menu-toolbar">
-        <ion-title class="menu-tittle">{{nombre_persona}}<br>Mi Agenda</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <ion-accordion-group>
-        <ion-accordion>
-          <ion-item slot="header" color="secondary" style="display: block; width: 100%;">
-            <ion-label>Perfil</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content" (click)="editarPerfil()">
-            Editar Perfil
-          </div>
-      </ion-accordion>
-      </ion-accordion-group>
-      <ion-footer>
-        <ion-toolbar>
-          <ion-title style="font-size: small; background-color: brown; color: white;" (click)="cerrarSesion()">Cerrar Sesion</ion-title>
-        </ion-toolbar>
-      </ion-footer>
-    </ion-content>
-  </ion-menu>
-  <div class="ion-page" id="main-content">
-    <ion-header [translucent]="true">
-      <ion-toolbar>
         <ion-title>
-          Menu
+          <div class="menu-header">
+            <ion-icon name="person-circle-outline" class="menu-icon"></ion-icon>
+            <p class="menu-nombre">{{ nombre_persona }}</p>
+          </div>
         </ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-      <ion-fab-button (click)="nuevo()">
+
+    <ion-content>
+      <ion-list>
+        <ion-item button (click)="editarPerfil()">
+          <ion-icon name="create-outline" slot="start"></ion-icon>
+          <ion-label>Editar Perfil</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+    <ion-footer>
+      <ion-toolbar color="danger" class="footer-toolbar" (click)="cerrarSesion()">
+        <ion-title class="cerrar-sesion">Cerrar Sesión</ion-title>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-menu>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="ion-page" id="main-content">
+    <ion-header [translucent]="true">
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Agenda</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <!-- Botón flotante para agregar contacto -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="tertiary" (click)="nuevo()">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
-    <ion-content [fullscreen]="true">
+
+    <ion-content [fullscreen]="true" class="ion-padding">
       <ion-list>
-        <ion-item-sliding *ngFor ="let fila of contactos">
+        <ion-item-sliding *ngFor="let fila of contactos">
           <ion-item>
-            <ion-avatar>
+            <ion-avatar slot="start">
               <img src="assets/imgs/person.png">
             </ion-avatar>
             <ion-label>
-              <b>Nombre:</b> {{fila.nombre}}
-              <b>Telf::</b> {{fila.telefono}}
+              <h2>{{ fila.nombre }}</h2>
+              <p>{{ fila.telefono }}</p>
             </ion-label>
+            <ion-button fill="clear" color="primary" (click)="irEditar(fila.codigo)">
+              <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" color="danger" (click)="irEliminar(fila.codigo)">
+              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
           </ion-item>
-          <ion-item-options>
-            <ion-item-option color="warning" (click)="irEditar(fila.codigo)">Editar</ion-item-option>
-            <ion-item-option color="danger" (click)="irEliminar(fila.codigo)">Eliminar</ion-item-option>
-          </ion-item-options>
         </ion-item-sliding>
       </ion-list>
     </ion-content>
   </div>
+
 </ion-app>

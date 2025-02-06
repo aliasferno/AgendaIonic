@@ -18,6 +18,7 @@ export class HomePage {
   cuentaBloqueada: boolean = false;
   tiempoBloqueo: number = 30; // Segundos de bloqueo
   tiempoRestante: number = 0;
+  cargando: boolean = false;
   constructor(
     private loadingCtrl: LoadingController,
     private servicio: AccesoService,
@@ -42,6 +43,7 @@ export class HomePage {
         console.log("Respuesta:", res);
         loading.dismiss();
         if (res.estado) {
+          this.cargando = false;
           this.servicio.createSesion('cod_persona', res.persona.codigo);
           this.servicio.createSesion('persona_nombre', res.persona.nombre);
           this.navCtrl.navigateRoot('/menu');
@@ -81,6 +83,7 @@ export class HomePage {
   }
 
   async showLoading() {
+    this.cargando = true;
     const loading = await this.loadingCtrl.create({
       message: 'Iniciando sesion...',
       spinner: 'crescent',

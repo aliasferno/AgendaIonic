@@ -1,0 +1,75 @@
+/* Ajustar los elementos de los inputs de clave y confirmar clave */
+.password-item {
+    margin-bottom: 20px;
+  }
+  
+  ion-item {
+    --background: #fff;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Para evitar que las etiquetas se monten, el padding se ajusta */
+  ion-input {
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --padding-start: 16px;
+  }
+  
+  /* Etiquetas flotantes con suficiente espacio */
+  ion-label.floating {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Asegurarse de que el error de las claves se vea bien */
+  ion-label[color="danger"] {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #f44336;
+    padding-top: 4px;
+  }
+  
+  /* Espaciado adecuado para separar los elementos */
+  ion-item {
+    margin-bottom: 15px; /* Espaciado entre elementos */
+  }
+  
+  /* Mejorar la visibilidad de las etiquetas flotantes */
+  ion-label {
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 8px;
+  }
+  
+  /* Botones estilizados y separación adecuada */
+  .ion-padding-top {
+    margin-top: 20px;
+  }
+  
+  ion-button {
+    --border-radius: 30px;
+    --transition: all 0.3s ease-in-out;
+  }
+  
+  ion-button:hover {
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  ion-button:active {
+    --box-shadow: none;
+  }
+  
+  /* Color y diseño del encabezado */
+  ion-header {
+    --background: #6200ea; /* Color del encabezado */
+  }
+  
+  ion-toolbar {
+    --background: #6200ea; /* Color del toolbar */
+  }
+  
+  ion-title {
+    color: white; /* Color del texto */
+  }
+  

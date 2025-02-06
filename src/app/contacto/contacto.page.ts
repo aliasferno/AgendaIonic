@@ -45,15 +45,15 @@ export class ContactoPage implements OnInit {
 
     this.servicio.postData(datos).subscribe((res:any)=>{
       if(res.estado){
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
         this.txt_nombre = "";
         this.txt_apellido = "";
         this.txt_telefono = "";
         this.txt_correo = "";
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
         this.navCtrl.back();
       }else{
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
       }
     })
   }

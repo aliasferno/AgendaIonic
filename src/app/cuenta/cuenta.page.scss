@@ -1,0 +1,52 @@
+/* Card Style for Inputs */
+.input-item {
+    --background: transparent;
+    --border-radius: 10px;
+    --padding-start: 12px;
+    --inner-padding-end: 12px;
+    margin-bottom: 12px;
+  }
+  
+  /* Material Design Floating Labels */
+  ion-input {
+    --padding-start: 8px;
+    --padding-end: 8px;
+    font-size: 16px;
+  }
+  
+  ion-label {
+    font-size: 14px;
+    color: var(--ion-color-dark);
+  }
+  
+  .error-message {
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: red;
+    display: block;
+  }
+  
+  /* Button Container */
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 50px;
+  }
+  
+  ion-button {
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  ion-button[fill="outline"] {
+    --border-color: var(--ion-color-secondary);
+    --color: var(--ion-color-secondary);
+  }
+  
+  ion-button[shape="round"] {
+    --border-radius: 50px;
+  }
+  
