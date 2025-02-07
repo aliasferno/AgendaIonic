@@ -48,6 +48,7 @@ export class HomePage {
           this.servicio.createSesion('persona_nombre', res.persona.nombre);
           this.navCtrl.navigateRoot('/menu');
         } else {
+          this.cargando = false;
           this.manejarIntentoFallido();
           this.servicio.showToast('Datos incorrectos', 3000);
         }

@@ -76,10 +76,10 @@ export class EcontactoPage implements OnInit {
     }
     this.servicio.postData(datos).subscribe((res:any)=>{
       if(res.estado){
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
         this.navCtrl.navigateRoot('/menu');
       }else{
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
       }
     })
   }

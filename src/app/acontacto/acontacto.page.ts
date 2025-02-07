@@ -46,7 +46,7 @@ export class AcontactoPage implements OnInit {
         this.txt_telefono  = this.contactos.telefono;
         this.txt_correo = this.contactos.correo;
       }else{
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
       }
     })
   }
@@ -66,10 +66,10 @@ export class AcontactoPage implements OnInit {
 
     this.servicio.postData(datos).subscribe((res:any)=>{
       if(res.estado){
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
         this.navCtrl.navigateRoot('/menu');
       }else{
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
       }
     })
   }
@@ -91,7 +91,7 @@ export class AcontactoPage implements OnInit {
       if(res.estado){
         this.lbl_mensaje = res.mensaje;
       }else{
-        this.servicio.showToast(res.message, 2000);
+        this.servicio.showToast(res.mensaje, 2000);
       }
     })
   }
